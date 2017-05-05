@@ -15,3 +15,6 @@ curl "${API}${URL_PATH}" \
   }'
 
 echo
+
+
+# EMAIL='email@email.com' PASSWORD='examplepassword' sh scripts/sign-up.sh

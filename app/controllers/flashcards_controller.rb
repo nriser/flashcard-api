@@ -1,5 +1,6 @@
 class FlashcardsController < ApplicationController
   before_action :set_flashcard, only: [:show, :update, :destroy]
+  before_action :validate_user, only: [:index, :create, :update, :destroy, :set_item]
 
   # GET /flashcards
   def index
@@ -15,8 +16,9 @@ class FlashcardsController < ApplicationController
 
   # POST /flashcards
   def create
-    @flashcard = Flashcard.new(flashcard_params)
-
+    # @flashcard = Flashcard.new(flashcard_params)
+    @flashcard = current_user.flashcards.build(flashcard_params)
+# binding.pry
     if @flashcard.save
       render json: @flashcard, status: :created, location: @flashcard
     else
@@ -41,7 +43,12 @@ class FlashcardsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_flashcard
-      @flashcard = Flashcard.find(params[:id])
+      # @flashcard = Flashcard.find(params[:id])
+      @flashcard = current_user.flashcards.find(params[:id])
+    end
+
+    def validate_user
+      set_current_user
     end
 
     # Only allow a trusted parameter "white list" through.

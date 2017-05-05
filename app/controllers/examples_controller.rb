@@ -1,4 +1,7 @@
 # frozen_string_literal: true
+
+
+
 class ExamplesController < OpenReadController
   before_action :set_example, only: [:update, :destroy]
 
@@ -19,7 +22,9 @@ class ExamplesController < OpenReadController
   # POST /examples
   # POST /examples.json
   def create
-    @example = current_user.examples.build(example_params)
+    @example = current_user.examples.build(example_params) ## we can pass in an example. this creates the relationship.
+    ## current_user is an instance of the User class (model/user.rb). It has_many :examples.
+    ## u can do @user.examples.
 
     if @example.save
       render json: @example, status: :created

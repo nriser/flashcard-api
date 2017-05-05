@@ -49,7 +49,3 @@ class WordsController < ApplicationController
       params.require(:word).permit(:word, :definition)
     end
 end
-
-
-
-## use current_user.examples.build(example_params)

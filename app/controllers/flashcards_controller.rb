@@ -31,7 +31,7 @@ class FlashcardsController < ProtectedController
 
   # PATCH/PUT /flashcards/1
   def update
-    if @flashcard.update(flashcard_params)
+    if @flashcard.update(flashcard_params) # if able to update, then return data in json
       render json: @flashcard
     else
       render json: @flashcard.errors, status: :unprocessable_entity

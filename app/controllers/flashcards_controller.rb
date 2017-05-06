@@ -5,9 +5,8 @@ class FlashcardsController < ProtectedController
 
   # GET /flashcards
   def index
-    # @flashcards = current_user.flashcards
-
-    render json: @flashcard
+    @flashcards = current_user.flashcards
+    render json: @flashcards
   end
 
   # GET /flashcards/1

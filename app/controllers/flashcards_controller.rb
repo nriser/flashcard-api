@@ -1,17 +1,19 @@
 class FlashcardsController < ProtectedController
-  before_action :set_flashcard, only: [:show, :update, :destroy]
+  before_action :set_flashcard, only: [:update, :destroy] # [:show, :update, :destroy]
   # before_action :validate_user, only: [:index, :create, :update, :destroy, :set_item]
   # before_action :flashcard_params, only: [:create]
 
   # GET /flashcards
   def index
-    @flashcards = current_user.flashcards
+    # @flashcards = current_user.flashcards
 
-    render json: @flashcards
+    render json: @flashcard
   end
 
   # GET /flashcards/1
   def show
+    # binding.pry
+    @flashcard = current_user.flashcards.find(params[:id])
     render json: @flashcard
   end
 

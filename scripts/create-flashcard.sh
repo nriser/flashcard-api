@@ -18,4 +18,4 @@ echo
 
 
 
-# WORD='test word' DEFINITION='test definition' TOKEN=BAhJIiViYmQyZjE0N2VmYmU0NGMyMjQ2NmE3NTI4NzI3MjNmNQY6BkVG--08b0e3cfd616e892873dcd2b06a8bd305fc3947c sh scripts/create-flashcard.sh
+# WORD='test word' DEFINITION='test definition' TOKEN=BAhJIiVmNGFiN2EzZDQ4YTc3MjUyZDllZWVhZjg0YmUxOTY4MwY6BkVG--6cff699cc82537ed9e5ea73eefefaa84d77107c3 sh scripts/create-flashcard.sh

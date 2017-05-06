@@ -1,10 +1,11 @@
-class FlashcardsController < ApplicationController
+class FlashcardsController < ProtectedController
   before_action :set_flashcard, only: [:show, :update, :destroy]
-  before_action :validate_user, only: [:index, :create, :update, :destroy, :set_item]
+  # before_action :validate_user, only: [:index, :create, :update, :destroy, :set_item]
+  # before_action :flashcard_params, only: [:create]
 
   # GET /flashcards
   def index
-    @flashcards = Flashcard.all
+    @flashcards = current_user.flashcards
 
     render json: @flashcards
   end
@@ -16,9 +17,10 @@ class FlashcardsController < ApplicationController
 
   # POST /flashcards
   def create
+    # binding.pry
     # @flashcard = Flashcard.new(flashcard_params)
     @flashcard = current_user.flashcards.build(flashcard_params)
-# binding.pry
+
     if @flashcard.save
       render json: @flashcard, status: :created, location: @flashcard
     else

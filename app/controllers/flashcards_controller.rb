@@ -11,14 +11,12 @@ class FlashcardsController < ProtectedController
 
   # GET /flashcards/1
   def show
-    # binding.pry
     @flashcard = current_user.flashcards.find(params[:id])
     render json: @flashcard
   end
 
   # POST /flashcards
   def create
-    # binding.pry
     # @flashcard = Flashcard.new(flashcard_params)
     @flashcard = current_user.flashcards.build(flashcard_params)
 
